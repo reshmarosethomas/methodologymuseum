@@ -2134,16 +2134,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectPrefab: {fileID: 6255065506786350587, guid: 4b1bbec97a2554bfa88a787ff5a06633, type: 3}
-  projectImages:
-  - {fileID: 2100000, guid: 20d743474f21a40c0b84b64ee2c50693, type: 2}
-  - {fileID: 2100000, guid: 2ca5e88c6aeec438bab37261ba70589b, type: 2}
-  - {fileID: 2100000, guid: 5d8dee49c355845c2855275863d413fd, type: 2}
-  - {fileID: 2100000, guid: bfc1af13b780c4a7e9286509d30364e6, type: 2}
+  projectMatPrefab: {fileID: 2100000, guid: 20d743474f21a40c0b84b64ee2c50693, type: 2}
   projectVerbSet:
   - MARDMS
   - RMADS
   - DMAS
   - RADMS
+  _projectImages:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &1142308767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2480,7 +2481,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0.9761464, b: 0.7783019, a: 1}
-  m_Intensity: 2
+  m_Intensity: 0.5
   m_Range: 12
   m_SpotAngle: 90
   m_InnerSpotAngle: 9

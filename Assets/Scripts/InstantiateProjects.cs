@@ -1,4 +1,5 @@
 using System.Collections;
+using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,6 +7,22 @@ using TMPro;
 
 public class InstantiateProjects : MonoBehaviour
 {   
+
+    public class _Project {
+
+        Material _material;
+        string _verbSet;
+        string _projectName;
+        string _projectText;
+
+        _Project(Material mat, string verbs, string name, string text) {
+            _material = mat;
+            _verbSet = verbs;
+            _projectName = name;
+            _projectText = text;
+        }  
+    }
+
     //Stores Prefab
     public GameObject projectPrefab; 
 
@@ -13,8 +30,16 @@ public class InstantiateProjects : MonoBehaviour
     GameObject[] projectBlocks;
 
     //Stores all project images & Verb Code Sets 
-    public Material[] projectImages = new Material[4];
+    public Material projectMatPrefab;
     public string[] projectVerbSet = new string[4]; 
+    
+    private Material[] _projectImages = new Material[4];
+    public List<_Project> _projectsList = new List<_Project>();
+    // List<_Project> _projects = new List<_Project> {
+    //     new _Project{_material = "", _verbSet = "Scott", _projectName = "Gurthie", _projectText = "Gurthie"},
+    //     new _Project{ID = 2, FirstName = "Bill", LastName = "Gates"}
+    // };
+
 
     //Stories indices to traverse
     int projIndex = 0;
@@ -28,10 +53,22 @@ public class InstantiateProjects : MonoBehaviour
 
     //Keeps track of time to float project blocks based on Perlin Noise
     float timer = 0;
+
   
     // Start is called before the first frame update
     void Start()
     {   
+        for (int i = 0; i<4; i++) {
+            
+            var bytes = System.IO.File.ReadAllBytes("Assets/Materials/Textures/p" + (i+1).ToString()+ ".png");
+            var myTexture = new Texture2D(1, 1);
+    
+            myTexture.LoadImage(bytes);
+            Material x = new Material(projectMatPrefab); 
+            x.mainTexture = myTexture;
+            _projectImages[i] = x;
+        }
+
         //Instatiate Projects in Position
         for (int i = 0; i < noInRow; i++)
         {
@@ -55,7 +92,7 @@ public class InstantiateProjects : MonoBehaviour
         {
             //Set Project Image on Quad
             Transform plane = child.Find("Quad");
-            plane.GetComponent<MeshRenderer>().material = projectImages[projIndex%4];
+            plane.GetComponent<MeshRenderer>().material = _projectImages[projIndex%4];
 
             //Set Verbs
             child.gameObject.GetComponent<LookatCharacter>().thisProjectVerbs = projectVerbSet[projIndex%4]; 

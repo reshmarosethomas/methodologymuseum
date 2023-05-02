@@ -177,28 +177,28 @@ public class selectProject : MonoBehaviour
         //GetComponent<InstantiateProjects>().FindProject(key);
         //findProj.FindProject(key);
 
-        //for (int i=0; i<4; i++) {
+        // for (int i=0; i<4; i++) {
 
-            //string word = GetComponent<InstantiateProjects>().projectVerbSet[i];
-            //for (int j=0; j<word.Length; j++) {
+        //     string word = GetComponent<InstantiateProjects>().projectVerbSet[i];
+        //     for (int j=0; j<word.Length; j++) {
                 
-                // if (word[j] == key[0]) {
-                //         Indices[options] = i; options++;
-                // }
-                // if (key.Length == 1) {
-                //     if (word[j] == key[0]) {
-                //         Indices[options] = i; options++;
-                //     }
-                // } else if (key.Length >=2) {
-                //     if (word[j] == key[0]) {
-                //         Indices[options] = i; options++;
-                //     }
-                // }
+        //         if (word[j] == key[0]) {
+        //                 Indices[options] = i; options++;
+        //         }
+        //         if (key.Length == 1) {
+        //             if (word[j] == key[0]) {
+        //                 Indices[options] = i; options++;
+        //             }
+        //         } else if (key.Length >=2) {
+        //             if (word[j] == key[0]) {
+        //                 Indices[options] = i; options++;
+        //             }
+        //         }
 
-                // for (int k=0; k<key.Length; k++) {
-                // }
-            //}
-        //}
+        //         for (int k=0; k<key.Length; k++) {
+        //         }
+        //     }
+        // }
 
         if (key!="") {
             if (key[0] == 'M')
@@ -225,7 +225,7 @@ public class selectProject : MonoBehaviour
                 //USE LERP!!! 
             }
         } 
-        
+
         else {
             projInFocus = false;
         }

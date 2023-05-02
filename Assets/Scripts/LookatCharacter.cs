@@ -14,7 +14,8 @@ public class LookatCharacter : MonoBehaviour
     }
 
     void Update()
-    {
+    {   
+        if (transform.parent.gameObject.name=="ProjectHolder")
         transform.LookAt(player);
     }
 
